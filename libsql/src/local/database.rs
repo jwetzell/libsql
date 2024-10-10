@@ -374,7 +374,7 @@ impl Database {
         let sync_ctx = self.sync_ctx.as_ref().unwrap();
         let start_frame_no = sync_ctx.durable_frame_num() + 1;
         let end_frame_no = max_frame_no;
-        for frame_no in start_frame_no..end_frame_no {
+        for frame_no in start_frame_no..end_frame_no+1 {
             const FRAME_SIZE: usize = 24+4096; // FIXME: make dynamic
             let frame: [u8; FRAME_SIZE] = [0; FRAME_SIZE];
             let rc = unsafe {
