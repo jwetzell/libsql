@@ -266,6 +266,10 @@ impl Wal for DurableWal {
         Ok(())
     }
 
+    fn frame_count(&self) -> Result<u32> {
+        todo!()
+    }
+
     fn db_size(&self) -> u32 {
         let size = self.local_cache.get_max_frame_num().unwrap();
         trace!("DurableWal::db_size() => {}", size);
